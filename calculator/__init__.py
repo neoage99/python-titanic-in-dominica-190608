@@ -11,6 +11,6 @@ if __name__ == '__main__':
 
     if not os.path.exists('saved_div_model/checkpoint'):
         calc.create_div_model()
-       """"""
+
     if not os.path.exists('saved_sub_model/checkpoint'):
         calc.create_sub_model()
