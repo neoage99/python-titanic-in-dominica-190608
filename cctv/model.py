@@ -58,7 +58,7 @@ class CCTVModel:
         print(pop_idx)
 """
 
-    # hook_process(self)->object: 를 create_cctv_pop(self) -> object: 로 바꾸었음. 
+    # hook_process(self)->object: 를 create_cctv_pop(self) -> object: 로 바꾸었음.
     def create_cctv_pop(self)->object:
         self._context='./data/'
         self._fname = 'CCTV_in_Seoul.csv'
