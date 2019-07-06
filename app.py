@@ -12,17 +12,15 @@ def hello_world():
     ctrl = MemberController()
     ctrl.create_table()
     return render_template('intro.html')
-
+# avg_temp, min_temp, max_temp, rain_fall
 @app.route("/cabbage", methods=['GET','POST'])
 def predict_cabbage():
     avg_temp = request.form['avg_temp']
     min_temp = request.form['min_temp']
     max_temp = request.form['max_temp']
     rain_fall = request.form['rain_fall']
-
-    ctrl = CabbageController(avg_temp, min_temp, max_temp, rain_fall)
+    ctrl = CabbageController(avg_temp,min_temp,max_temp,rain_fall)
     result = ctrl.service()
-
     render_params = {}
     render_params['result'] = result
     return render_template('cabbage.html', **render_params)
@@ -36,7 +34,7 @@ def login():
     print('password %s' % (password))
     ctrl = MemberController()
     view = ctrl.login(userid, password)
-    return render_template(view)
+    return render_template('index.html')
 
 @app.route("/move/<path>")
 def move(path):
@@ -79,7 +77,6 @@ def ai_calc():
     render_params = {}
     render_params['result'] = int(result)
     return render_template('ai_calc.html', **render_params)
-
 
 
 
