@@ -1,8 +1,5 @@
-from selenium import webdriver
-from time import sleep
-from bs4 import BeautifulSoup
+from naivebayes_dog_cat.naivebayes_naver_movie import NaiveBayesClassfier
 context = './data/'
-driver = webdriver.Chrome(context+'chromedriver')
-driver.get('https://movie.naver.com/movie/sdb/rank/rmovie.nhn')
-soup = BeautifulSoup(driver.page_source, 'html.parser')
-print(soup)
+model = NaiveBayesClassfier()
+model.train(context+'review_train.csv')
+print(model.classfy('내 인생 최악의 영화'))
